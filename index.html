@@ -98,8 +98,9 @@
         }
 
         #ok {
-            color: #2ecc71;
+            color: #1f6b3a;
             font-weight: bold;
+            margin-top: 16px;
         }
     </style>
 </head>
@@ -134,7 +135,7 @@
         <button type="submit" class="btn">Mentés</button>
     </form>
 
-    <p id="ok"></p>
+    <p id="ok" role="status"></p>
 
     <script>
         document.getElementById('tunet-form').addEventListener('submit', function (e) {
@@ -159,7 +160,7 @@
             eros.removeAttribute('aria-describedby');
             hibaSzoveg.textContent = '';
 
-            document.getElementById('ok').textContent = 'Mentve!';
+            document.getElementById('ok').textContent = '✓ Mentve!';
         });
     </script>
 </body>
