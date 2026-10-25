@@ -1,7 +1,7 @@
 # Tünetnapló, ami csak egérrel működik – hibariport
 
-Repó: https://github.com/Hunor/umfst-bh11-tunetnaplo-a11y
-Készítette: Sandor Hunor, INFO 3.EV
+Repó: https://github.com/95HNR/umfst-bh11-tunetnaplo-a11y
+Készítette: Sandor Hunor, INFO 3.EV 
 
 ## 1. hiba
 
