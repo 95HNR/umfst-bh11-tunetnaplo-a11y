@@ -21,16 +21,25 @@
             margin: 0 0 16px 0;
         }
 
-        legend {
+        legend,
+        label[for] {
             font-size: 1.17em;
             font-weight: bold;
             margin-bottom: 8px;
+            display: block;
+            margin-top: 16px;
+        }
+
+        legend {
+            margin-top: 0;
         }
 
         .chk-label {
             display: inline-block;
             margin: 4px;
             cursor: pointer;
+            font-weight: normal;
+            margin-top: 0;
         }
 
         .chk-label input {
@@ -62,6 +71,7 @@
             padding: 8px;
             font: inherit;
             border: 1px solid #767676;
+            box-sizing: border-box;
         }
 
         .hibas {
@@ -103,10 +113,12 @@
         </label>
     </fieldset>
 
-    <h3>Erősség (0–10)</h3>
+    <label for="eros">Erősség (0–10)</label>
     <input id="eros" type="number" min="0" max="10" tabindex="2">
-    <h3>Megjegyzés</h3>
+
+    <label for="megj">Megjegyzés</label>
     <textarea id="megj" tabindex="1"></textarea>
+
     <div class="btn" id="ment">Mentés</div>
     <p id="ok"></p>
     <script>
