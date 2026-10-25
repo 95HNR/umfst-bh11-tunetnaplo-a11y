@@ -85,6 +85,8 @@
             color: #fff;
             padding: 10px 16px;
             cursor: pointer;
+            border: none;
+            font: inherit;
         }
 
         #ok {
@@ -97,32 +99,37 @@
 <body>
     <h1>Napi tünetnapló</h1>
 
-    <fieldset>
-        <legend>Tünetek</legend>
-        <label class="chk-label">
-            <input type="checkbox" name="tunet" value="fejfajas">
-            <span class="chk-text">Fejfájás</span>
-        </label>
-        <label class="chk-label">
-            <input type="checkbox" name="tunet" value="hanyinger">
-            <span class="chk-text">Hányinger</span>
-        </label>
-        <label class="chk-label">
-            <input type="checkbox" name="tunet" value="szedules">
-            <span class="chk-text">Szédülés</span>
-        </label>
-    </fieldset>
+    <form id="tunet-form">
+        <fieldset>
+            <legend>Tünetek</legend>
+            <label class="chk-label">
+                <input type="checkbox" name="tunet" value="fejfajas">
+                <span class="chk-text">Fejfájás</span>
+            </label>
+            <label class="chk-label">
+                <input type="checkbox" name="tunet" value="hanyinger">
+                <span class="chk-text">Hányinger</span>
+            </label>
+            <label class="chk-label">
+                <input type="checkbox" name="tunet" value="szedules">
+                <span class="chk-text">Szédülés</span>
+            </label>
+        </fieldset>
 
-    <label for="eros">Erősség (0–10)</label>
-    <input id="eros" type="number" min="0" max="10">
+        <label for="eros">Erősség (0–10)</label>
+        <input id="eros" type="number" min="0" max="10">
 
-    <label for="megj">Megjegyzés</label>
-    <textarea id="megj"></textarea>
+        <label for="megj">Megjegyzés</label>
+        <textarea id="megj"></textarea>
 
-    <div class="btn" id="ment">Mentés</div>
+        <button type="submit" class="btn">Mentés</button>
+    </form>
+
     <p id="ok"></p>
+
     <script>
-        document.getElementById('ment').addEventListener('click', function () {
+        document.getElementById('tunet-form').addEventListener('submit', function (e) {
+            e.preventDefault();
             var eros = document.getElementById('eros');
             var v = Number(eros.value);
             document.getElementById('ok').textContent = '';
