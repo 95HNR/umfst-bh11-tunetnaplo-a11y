@@ -75,7 +75,15 @@
         }
 
         .hibas {
-            border: 2px solid #e74c3c;
+            border: 2px solid #d32f2f;
+        }
+
+        .hiba-uzenet {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-top: 4px;
+            font-size: 0.9em;
+            min-height: 1.5em;
         }
 
         .btn {
@@ -118,6 +126,7 @@
 
         <label for="eros">Erősség (0–10)</label>
         <input id="eros" type="number" min="0" max="10">
+        <div id="eros-hiba" class="hiba-uzenet"></div>
 
         <label for="megj">Megjegyzés</label>
         <textarea id="megj"></textarea>
@@ -131,10 +140,25 @@
         document.getElementById('tunet-form').addEventListener('submit', function (e) {
             e.preventDefault();
             var eros = document.getElementById('eros');
+            var hibaSzoveg = document.getElementById('eros-hiba');
             var v = Number(eros.value);
+
             document.getElementById('ok').textContent = '';
-            if (eros.value === '' || v < 0 || v > 10) { eros.classList.add('hibas'); return; }
+
+            if (eros.value === '' || v < 0 || v > 10) {
+                eros.classList.add('hibas');
+                eros.setAttribute('aria-invalid', 'true');
+                eros.setAttribute('aria-describedby', 'eros-hiba');
+                hibaSzoveg.textContent = '❌ Hiba: Kérem, adjon meg egy értéket 0 és 10 között!';
+                eros.focus();
+                return;
+            }
+
             eros.classList.remove('hibas');
+            eros.removeAttribute('aria-invalid');
+            eros.removeAttribute('aria-describedby');
+            hibaSzoveg.textContent = '';
+
             document.getElementById('ok').textContent = 'Mentve!';
         });
     </script>
